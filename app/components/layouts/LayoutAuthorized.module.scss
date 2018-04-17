@@ -3,3 +3,19 @@
 .content {
   @include make-col-ready;
 }
+
+.layout-authorized {
+  @include media-breakpoint-up (md) {
+    padding-left: px-to-rem(30px);
+    padding-right: px-to-rem(30px);
+    padding-top: px-to-rem(20px);
+  }
+
+  width: 100%;
+  min-height: 100%;
+  max-width: 100%;
+  padding-bottom: 100px;
+  padding: px-to-rem(15px);
+  position: relative;
+  -webkit-overflow-scrolling: touch; // sass-lint:disable-line no-vendor-prefixes
+}

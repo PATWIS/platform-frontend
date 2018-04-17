@@ -31,7 +31,7 @@ const chartBarData = {
 
 export const Dashboard = () => (
   <LayoutAuthorized>
-    <Row className="row-gutter-top">
+    <Row>
       <Col lg={8} xs={12}>
         <MyPortfolioWidget className="h-100" />
       </Col>
@@ -58,7 +58,7 @@ export const Dashboard = () => (
       </Col>
     </Row>
     <SectionHeader>
-      investment opportunities{" "}
+      investment opportunities
       <Tag className="ml-3" color="green" layout="ghost" size="small" text="1 new" />
     </SectionHeader>
     <Row className="py-4">

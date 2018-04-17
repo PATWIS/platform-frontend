@@ -1,0 +1,24 @@
+@import "../../styles/neufund-theme";
+
+.cta-bar {
+  @include media-breakpoint-up (md) {
+    margin-top: -$layout-authorised-padding-top;
+    margin-left: -$layout-authorised-padding-side;
+    margin-right: -$layout-authorised-padding-side;
+    width: calc(100% + 2 * $layout-authorised-padding-side);
+  }
+
+  align-items: center;
+  background-color: $neu-white-two;
+  box-shadow: $shadow;
+  display: flex;
+  padding: px-to-rem(10px) $layout-authorised-padding-side;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: $z-index-over-base;
+
+  p {
+    margin: 0;
+  }
+}

@@ -11,8 +11,10 @@
   color: $neu-slate-grey;
   display: flex;
   flex-direction: column;
+  margin: map-get($spacers, 4) 0;
   padding: px-to-rem(10px) px-to-rem(12px);
   position: relative;
+
 
   &:global {
     &.info {
@@ -28,10 +30,6 @@
       background-color: $_color-bg;
       border-color: $neu-bright-orange;
     }
-  }
-
-  &:not(:first-child) {
-    margin-top: map-get($spacers, 4);
   }
 
   .text {

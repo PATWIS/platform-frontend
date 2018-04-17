@@ -15,25 +15,6 @@ body,
   min-height: calc(100% - #{$header-height});
 }
 
-.layout-container {
-  @include media-breakpoint-up (md) {
-    padding-left: px-to-rem(30px);
-    padding-right: px-to-rem(30px);
-    padding-top: px-to-rem(20px);
-  }
-
-  width: 100%;
-  min-height: 100%;
-  overflow-x: hidden;
-  overflow-y: scroll;
-  max-width: 100%;
-  padding-bottom: 100px;
-  padding-top: px-to-rem(15px);
-  padding-left: px-to-rem(15px);
-  padding-right: px-to-rem(15px);
-  -webkit-overflow-scrolling: touch; // sass-lint:disable-line no-vendor-prefixes
-}
-
 .row-gutter-top {
   & > div {
     margin-top: $grid-gutter-width;

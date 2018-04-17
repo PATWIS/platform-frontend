@@ -2,6 +2,9 @@ $header-height: 60px;
 
 $loading-indicator-color: #333;
 
+$layout-authorised-padding-top: px-to-rem(20px);
+$layout-authorised-padding-side: px-to-rem(30px);
+
 // old color palette it should be removed when we finish restyling
 $black-lighter: #262b2f;
 $blue-darker: #315568;
@@ -93,3 +96,6 @@ $input-focus-width: 0;
 $input-focus-box-shadow: none;
 $form-feedback-font-size: px-to-rem(14px);
 $form-feedback-invalid-color: $neu-bright-orange;
+
+// z indexes
+$z-index-over-base: 10;
