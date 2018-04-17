@@ -18,7 +18,7 @@ export const LayoutAuthorized: React.SFC = ({ children }) => (
           "You have filled in all informations and you are able to change them until the ETO is launched."
         }
         ctaText="save draft"
-        onClick={() => { }}
+        onClick={() => {}}
       />
       <NotificationWidget />
       <Row>

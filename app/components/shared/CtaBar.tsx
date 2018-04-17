@@ -7,7 +7,7 @@ import * as styles from "./CtaBar.module.scss";
 interface IProps {
   message: string;
   ctaText: string;
-  onClick: () => void
+  onClick: () => void;
 }
 
 export const CtaBar: React.SFC<IProps> = ({ onClick, ctaText, message }) => {
