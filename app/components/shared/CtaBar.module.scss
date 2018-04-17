@@ -20,7 +20,7 @@
 
   p {
     @include media-breakpoint-down (md) {
-      margin-right: px-to-rem(10px)
+      margin-right: px-to-rem(10px);
     }
 
     margin: 0;
