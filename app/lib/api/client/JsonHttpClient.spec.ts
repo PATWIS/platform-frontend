@@ -156,6 +156,30 @@ describe("JsonHttpClient", () => {
       );
     });
 
+    it("should not validate schema on non 2xx response", async () => {
+      fetchMock.mock(`${API_URL}products`, {
+        status: 404,
+        body: { error: "missing" },
+      });
+
+      const httpClient = new JsonHttpClient();
+      const actual = await httpClient.get<Array<IProduct>>({
+        baseUrl: API_URL,
+        url: "products",
+        allowedStatusCodes: [404],
+        responseSchema: Yup.array()
+          .required()
+          .of(productSchema),
+      });
+
+      expect(actual).to.be.deep.eq({
+        statusCode: 404,
+        body: {
+          error: "missing",
+        },
+      });
+    });
+
     it("should throw an error on malformed response totally different objects", async () => {
       fetchMock.mock(`${API_URL}products`, {
         status: 200,

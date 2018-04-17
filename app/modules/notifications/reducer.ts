@@ -1,6 +1,5 @@
-import { AppActionTypes, AppReducer, IAppState } from "../../store";
+import { AppActionTypes, AppReducer } from "../../store";
 import { DeepReadonly } from "../../types";
-import { selectKycRequestStatus } from "../kyc/selectors";
 import { routingActions } from "../routing/actions";
 import { selectBackupCodesVerified, selectIsUserEmailVerified } from "./../auth/selectors";
 import { notificationActions } from "./actions";
@@ -70,10 +69,3 @@ export const settingsNotification = () => ({
   actionLinkText: "Go to settings",
   onClickAction: routingActions.goToSettings(),
 });
-
-export const selectSettingsNotification = (state: IAppState) =>
-  !selectIsUserEmailVerified(state.auth) ||
-  !selectBackupCodesVerified(state.auth) ||
-  selectKycRequestStatus(state.kyc) !== "Accepted"
-    ? settingsNotification()
-    : undefined;

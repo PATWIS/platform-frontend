@@ -33,7 +33,7 @@ export class HttpClientError extends Error {
     title: string = "There was an error connecting to the network",
     status: number = 0,
   ) {
-    super();
+    super(type);
     this.type = type;
     this.details = {
       type,
@@ -157,7 +157,8 @@ export class JsonHttpClient implements IHttpClient {
     }
 
     let finalResponseJson: T = toCamelCase(responseJson);
-    if (config.responseSchema) {
+    if (config.responseSchema && response.ok) {
+      // we dont validate response on non success statuses
       try {
         finalResponseJson = config.responseSchema.validateSync<T>(toCamelCase(responseJson), {
           stripUnknown: true,

@@ -42,8 +42,6 @@ export class UsersApi {
       throw new UserNotExisting();
     }
 
-    response.body.type = "investor"; // @todo remove it when api is done
-
     return response.body;
   }
 

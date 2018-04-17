@@ -164,7 +164,7 @@ export function customizerContainerWithMiddlewareApi(
 }
 
 /**
- * We use plain object for injecting deps into sagas"
+ * We use plain object for injecting deps into sagas
  */
 export const createGlobalDependencies = (container: Container) => ({
   // misc
@@ -195,7 +195,7 @@ export const createGlobalDependencies = (container: Container) => ({
   // apis
   signatureAuthApi: container.get<SignatureAuthApi>(symbols.signatureAuthApi),
   apiKycService: container.get<KycApi>(symbols.apiKycService),
-  apiUserSerivce: container.get<UsersApi>(symbols.usersApi),
+  apiUserService: container.get<UsersApi>(symbols.usersApi),
   vaultApi: container.get<VaultApi>(symbols.vaultApi),
 });
 

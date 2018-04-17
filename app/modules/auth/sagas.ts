@@ -22,27 +22,28 @@ export function* loadJwt({ jwtStorage }: TGlobalDependencies): Iterator<Effect> 
 }
 
 export async function loadUserPromise({
-  apiUserSerivce,
+  apiUserService,
   walletMetadataStorage,
 }: TGlobalDependencies): Promise<IUser> {
   try {
-    return await apiUserSerivce.me();
+    return await apiUserService.me();
   } catch (e) {
     if (!(e instanceof UserNotExisting)) {
       throw e;
     }
   }
+
   // for light wallet we need to send slightly different request
   const walletMetadata = walletMetadataStorage.get();
   if (walletMetadata && walletMetadata.walletType === WalletType.LIGHT) {
-    return apiUserSerivce.createAccount({
+    return apiUserService.createAccount({
       newEmail: walletMetadata.email,
       salt: walletMetadata.salt,
       backupCodesVerified: false,
       type: "investor",
     });
   } else {
-    return apiUserSerivce.createAccount({
+    return apiUserService.createAccount({
       backupCodesVerified: true,
       type: "investor",
     });
@@ -50,14 +51,14 @@ export async function loadUserPromise({
 }
 
 export async function verifyUserEmailPromise({
-  apiUserSerivce,
+  apiUserService,
   getState,
   notificationCenter,
 }: TGlobalDependencies): Promise<void> {
   const userCode = selectActivationCodeFromQueryString(getState().router);
   if (!userCode) return;
   try {
-    await apiUserSerivce.verifyUserEmail(userCode);
+    await apiUserService.verifyUserEmail(userCode);
     notificationCenter.info("Your email was verified successfully.");
   } catch (e) {
     notificationCenter.error("Failed to verify your email.");
@@ -65,11 +66,11 @@ export async function verifyUserEmailPromise({
 }
 
 export async function updateUserPromise(
-  { apiUserSerivce }: TGlobalDependencies,
+  { apiUserService }: TGlobalDependencies,
   user: IUserInput,
 ): Promise<IUser> {
-  await apiUserSerivce.me();
-  return apiUserSerivce.updateUser(user);
+  await apiUserService.me();
+  return apiUserService.updateUser(user);
 }
 
 export function* loadUser(): Iterator<any> {

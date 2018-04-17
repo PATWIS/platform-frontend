@@ -1,7 +1,8 @@
 import * as React from "react";
 
 import { compact } from "lodash";
-import { INotification, selectSettingsNotification } from "../../../modules/notifications/reducer";
+import { INotification } from "../../../modules/notifications/reducer";
+import { selectSettingsNotification } from "../../../modules/notifications/selectors";
 import { appConnect, AppDispatch } from "../../../store";
 import { Notification } from "./Notification";
 

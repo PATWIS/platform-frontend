@@ -28,6 +28,6 @@ export const UserValidator = Yup.object()
     language: Yup.string(),
     unverifiedEmail: Yup.string(),
     verifiedEmail: Yup.string(),
-    // type: Yup.string().oneOf(["investor", "eto"]), // @todo unmock it when API is done
+    type: Yup.string().oneOf(["investor", "eto"]),
   })
   .required();
